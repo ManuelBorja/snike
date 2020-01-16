@@ -3,7 +3,7 @@ var scl = 20;
 var food;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(800, 600);
   s = new Snike();
   frameRate(10);
   pickLocation();
@@ -21,12 +21,9 @@ function draw() {
   if(s.eat(food)){
     pickLocation();
   };
-
   s.death()
   s.update();
   s.show();
-
-
   fill(255,127,63)
   rect(food.x,food.y,scl,scl)
 
@@ -43,5 +40,7 @@ function keyPressed() {
         s.dir(0,1)
     }
 }
+
+
 
 

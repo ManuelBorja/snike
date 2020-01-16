@@ -4,7 +4,7 @@
 // Video
 let video;
 let classifier;
-let label = "Esperando ..."
+let label = "Esperando ===>..."
 
 // STEP 1: Load the model!
 function preload(){
