@@ -1,5 +1,5 @@
 var s;
-var scl = 20;
+var scl = 40;
 var food;
 let video;
 let classifier;
@@ -7,7 +7,8 @@ let label = "Esperando ..."
 
 function preload(){
     //classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/QOAPmEJt/model.json');
-    classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/wLjiq8fW/model.json');
+    //classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/wLjiq8fW/model.json');
+    classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/8gqSR98B/model.json');
 }
 
 function setup() {
@@ -70,10 +71,10 @@ function snakeContol() {
         s.dir(-1,0)
         console.log("--->Derecha")
     } else if (label === 'Arriba') {
-      s.dir(0,1)
+      s.dir(0,-1)
       console.log("--->Arriba")
     } else if (label === 'Abajo') {
-      s.dir(0,-1)
+      s.dir(0,1)
       console.log("--->Abajo")
     }
   }
