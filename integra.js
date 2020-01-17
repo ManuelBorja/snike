@@ -3,9 +3,10 @@ var scl = 20;
 var food;
 let video;
 let classifier;
-let label = "Esperandooo ..."
+let label = "Esperando ..."
 
 function preload(){
+    //classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/QOAPmEJt/model.json');
     classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/wLjiq8fW/model.json');
 }
 
@@ -16,7 +17,6 @@ function setup() {
   video.hide();
   classifyVideo();
   s = new Snike();
-  console.log("Carga Snike")
   frameRate(10);
   pickLocation();
 }
@@ -48,7 +48,8 @@ function draw() {
   fill(255,127,63)
   rect(food.x,food.y,scl,scl)
 }
-  function gotResults(error, results){
+
+function gotResults(error, results){
     if(error){
         console.log("Se produjo un error");
         return;
@@ -56,16 +57,23 @@ function draw() {
     label = results[0].label;
     classifyVideo();
     snakeContol()
-    //console.log("===>",label);
+    console.log("===>",label);
 }
 
 function snakeContol() {
-    alert("Control")
     if (label === 'Reposo') {
       s.dir(0,0)
-    } else if (keyCode === 'Izquierda') {
-        s.dir(0,-1)
-    } else if (keyCode === 'Derecha') {
+    } else if (label === 'Izquierda') {
+        s.dir(1,0)
+        console.log("--->Izquierda")
+    } else if (label === 'Derecha') {
         s.dir(-1,0)
+        console.log("--->Derecha")
+    } else if (label === 'Arriba') {
+      s.dir(0,1)
+      console.log("--->Arriba")
+    } else if (label === 'Abajo') {
+      s.dir(0,-1)
+      console.log("--->Abajo")
     }
   }
