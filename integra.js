@@ -8,7 +8,8 @@ let label = "Esperando ..."
 function preload(){
     //classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/QOAPmEJt/model.json');
     //classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/wLjiq8fW/model.json');
-    classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/8gqSR98B/model.json');
+    //classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/8gqSR98B/model.json');
+    classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/s5-sIKQ7/model.json');
 }
 
 function setup() {
@@ -43,7 +44,7 @@ function draw() {
   if(s.eat(food)){
     pickLocation();
   };
-  s.death()
+  //s.death()
   s.update();
   s.show();
   fill(255,127,63)
@@ -65,10 +66,10 @@ function snakeContol() {
     if (label === 'Reposo') {
       s.dir(0,0)
     } else if (label === 'Izquierda') {
-        s.dir(1,0)
+        s.dir(-1,0)
         console.log("--->Izquierda")
     } else if (label === 'Derecha') {
-        s.dir(-1,0)
+        s.dir(1,0)
         console.log("--->Derecha")
     } else if (label === 'Arriba') {
       s.dir(0,-1)
